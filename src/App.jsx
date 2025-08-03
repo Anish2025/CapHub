@@ -153,3 +153,29 @@ function App() {
 }
 
 export default App;
+
+// User
+export const ProtectedRoute = ({ children }) => {
+  const user = localStorage.getItem('user');
+  if (user) {
+    return children;
+  } else {
+    return <Navigate to="/login" />;
+  }
+};
+
+// Admin
+export const ProtectedRouteForAdmin = ({ children }) => {
+  const admin = JSON.parse(localStorage.getItem('user'));
+
+  if (
+    admin &&
+    admin.user.email === 'anishsharma805110@gmail.com' &&
+    admin.user.password === 'Anish@123'
+  ) {
+    return children;
+  } else {
+    return <Navigate to="/login" />;
+  }
+};
+
