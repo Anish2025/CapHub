@@ -87,11 +87,5 @@ const ProtectedRouteForAdmin = ({children})=> {
     return <Navigate to={'/login'}/>
   }
 
-}
-
-
-  
-    return <Navigate to="/login" />;
-  }
 };
 
